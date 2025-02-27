@@ -28,11 +28,22 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
+
+# Use Bootstrap for styling
 gem "bootstrap", "~> 5.2"
+
+# Automatically add vendor prefixes to CSS properties
 gem "autoprefixer-rails"
+
+# Use Font Awesome for icons
 gem "font-awesome-sass", "~> 6.1"
+
+# Generate simple and flexible forms
 gem "simple_form"
+
+# Use SassC for compiling Sass stylesheets
 gem "sassc-rails"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
