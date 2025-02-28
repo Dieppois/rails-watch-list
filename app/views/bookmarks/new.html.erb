@@ -1,0 +1,7 @@
+<h1>Add your review</h1>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie, collection: Movie.all %>
+  <%= f.submit "Create review", class: "btn btn-primary" %>
+<% end %>
