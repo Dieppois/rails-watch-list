@@ -1,11 +1,24 @@
-<div class="container w-50">
+<div class="container w-50 py-5">
 
-  <h1>Add your review</h1>
+  <h1 class="mb-5">Add your review</h1>
 
   <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :comment, class: "form-control" %>
-    <%= f.association :movie, collection: Movie.all, class: "form-select" %>
-    <%= f.submit "Create review", class: "btn btn-primary" %>
+    <div class="mb-3 py-2">
+      <%= f.association :movie,
+            collection: Movie.all,
+            input_html: { class: "form-select form-select-lg" },
+            prompt: t('select_movie') %>
+    </div>
+
+    <div class="mb-3 py-2">
+      <%= f.input :comment,
+            as: :text,
+            input_html: { class: "form-control form-control-lg mh-100", placeholder: t('write_your_comment'), style: "height: 100px" } %>
+    </div>
+
+    <div class="text-center">
+      <%= f.submit t('create_review'), class: "btn btn-outline-primary py-3 rounded-3 w-100" %>
+    </div>
   <% end %>
 
 </div>

@@ -1,8 +1,15 @@
-<h1>Create a new list</h1>
+<div class="container w-50 py-5">
 
-<%= @list.name %>
+  <h1 class="mb-5">Create a new list</h1>
 
-<%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for @list do |f| %>
+    <div class="mb-3 py-2">
+      <%= f.input :name,
+            input_html: { class: "form-control form-control-lg", placeholder: t('add_list_name') } %>
+    </div>
+
+    <div class="text-center">
+      <%= f.submit t('create_list'), class: "btn btn-outline-primary py-3 rounded-3 w-100" %>
+    </div>
+  <% end %>
+</div>

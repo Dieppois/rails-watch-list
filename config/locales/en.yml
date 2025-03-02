@@ -29,3 +29,8 @@
 
 en:
   hello: "Hello world"
+  select_movie: "Select a movie"
+  write_your_comment: "Write your comment here..."
+  create_review: "Create Review"
+  add_list_name: "Write your list name"
+  create_list: "Create List"

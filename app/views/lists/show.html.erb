@@ -1,13 +1,36 @@
-<%= @list.name %>
+<div class="container d-flex flex-wrap gap-5 my-5">
 
-<ul>
   <% @list.bookmarks.each do |bookmark| %>
-    <li><%= bookmark.comment %></li>
-    <li><%= bookmark.movie.title %></li>
-    <li><%= link_to "Delete", bookmark_path(bookmark),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </li>
-    <% end %>
-</ul>
+    <div class="card w-40 flex-grow-1 col-md-4" style="max-width: 631.4px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<%= bookmark.movie.poster_url %>" class="img-fluid rounded-start" alt="<%= bookmark.movie.title %>">
+        </div>
+        <div class="col-md-8 align-content-center p-3">
+          <div class="card-body">
+            <h5 class="card-title fs-2 fw-bold"><%= bookmark.movie.title %></h5>
+            <p class="card-text py-3"><%= bookmark.movie.overview %></p>
+            <div class="mb-4">
+              <% 5.times do |i| %>
+                <% if i < bookmark.movie.rating.floor %>
+                  <i class="fas fa-star text-warning"></i>
+                <% elsif i < bookmark.movie.rating %>
+                  <i class="fas fa-star-half-alt text-warning"></i>
+                <% else %>
+                  <i class="far fa-star text-warning"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <%= link_to "Delete", bookmark_path(bookmark),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary py-3 px-5 rounded-3" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<%= link_to "add a movie", new_list_bookmark_path(@list) %>
+</div>
+
+<div class="container mb-5">
+  <%= link_to "add a movie", new_list_bookmark_path(@list), class: "btn btn-outline-primary py-3 rounded-3 w-100" %>
+</div>
