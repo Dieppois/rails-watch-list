@@ -1,7 +1,11 @@
-<h1>Add your review</h1>
+<div class="container w-50">
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie, collection: Movie.all %>
-  <%= f.submit "Create review", class: "btn btn-primary" %>
-<% end %>
+  <h1>Add your review</h1>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment, class: "form-control" %>
+    <%= f.association :movie, collection: Movie.all, class: "form-select" %>
+    <%= f.submit "Create review", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
